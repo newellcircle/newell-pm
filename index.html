@@ -1,4 +1,4 @@
-TEST CONTENT HERE<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -128,7 +128,7 @@ function LoginPage() {
 
 // ââ Add Client Modal âââââââââââââââââââââââââââââââââââââââââââââ
 function AddClientModal({onClose,onCreated}) {
-  const [name,setName]     = useState('')
+  const [name,setName]      = useState('')
   const [color,setColor]   = useState(CLIENT_COLORS[0])
   const [loading,setLoading] = useState(false)
 
@@ -148,7 +148,7 @@ function AddClientModal({onClose,onCreated}) {
           <div>
             <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Name</label>
             <input autoFocus type="text" value={name} onChange={e=>setName(e.target.value)} required placeholder="ACME Corp"
-              className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#154579]/30 focus:border-[#154579]"/>
+              className="w5full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#154579]/30 focus:border-[#154579]"/>
           </div>
           <div>
             <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Color</label>
@@ -161,7 +161,7 @@ function AddClientModal({onClose,onCreated}) {
           </div>
           <div className="flex gap-2 pt-2">
             <button type="button" onClick={onClose} className="flex-1 py-2 border border-gray-200 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50">Cancel</button>
-            <button type="submit" disabled={loading} className="flex-1 py-2 bg-[#154579] text-white text-sm font-semibold rounded-lg hover:bg-[#0f3560] disabled:opacity-50">
+            <button type="submit" disabled={loading} className="flex-1 py-2 bg-[#154579] text-white text-sm font-semibold rounded-lg hover:bg-[#0f3560] disaled:opacity-50">
               {loading?'Creatingâ¦':'Create'}
             </button>
           </div>
@@ -486,215 +486,339 @@ function TaskModal({task,onClose,onUpdate,onDelete}) {
                         <a href={getStorageUrl(att.file_path)} target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-[#154579] hover:underline truncate block">{att.file_name}</a>
                         {att.file_size&&<p className="text-xs text-gray-400">{fmtSize(att.file_size)}</p>}
                       </div>
-                      <button onClick={()=>handleDeleteAttachment(att)} className="text-gray-400 hover:text-red-500 tranr][ÛXÛÛÜÈÚ[ËLÝÈÛ\ÜÓ[YOHËMM[HÛHY]ÐÞHÝÚÙOHÝ\[ÛÛÜÝÚÙUÚY^ÌO]ÝÚÙS[XØ\HÝ[ÝÚÙS[ZÚ[HÝ[HMNN
-M
-LLÏÜÝÏØ]ÛÙ]
-J_OÙ]BÙ]]X[Û\ÜÓ[YOHØÚÈ^^ÈÛ\Ù[ZXÛ^YÜ^KML\\Ø\ÙHXÚÚ[Ë]ÚY\XLÈXÝ]]OÛX[]Û\ÜÓ[YOH^Ø\LXM[]\OH^[YO^ÛÝU^HÛÚ[ÙO^ÙOOÙ]ÝU^
-K\Ù][YJ_BÛÙ^QÝÛ^ÙOOÚYKÙ^OOOIÑ[\ÉYKÚYÙ^J^ÙK][Y][
+                      <button onClick={()=>handleDeleteAttachment(att)} className="text-gray-400 hover:text-red-500 transition-colors shrink-0">
+                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+                      </button>
+                    </div>
+                  ))}</div>
+              }
+            </div>
 
-NÚ[PYÝJ
-___BXÙZÛ\HYHÝx )Û\ÜÓ[YOH^LHLÈKLÜ\Ü\YÜ^KLÝ[Y[È^\ÛHØÝ\ÎÝ][K[ÛHØÝ\Î[ËLØÝ\Î[ËVÈÌMM
-MÎWKÌÌØÝ\ÎÜ\VÈÌMM
-MÎWHÏ]ÛÛÛXÚÏ^Ú[PYÝ_H\ØXY^È[ÝU^[J
-_HÛ\ÜÓ[YOHLÈKLËVÈÌMM
-MÎWH^]Ú]H^\ÛHÛ[YY][HÝ[Y[ÈÝ\ËVÈÌÍMH\ØXYÜXÚ]KMYØ]ÛÙ]Ú\ÝÜK[ÝOOLÈÛ\ÜÓ[YOH^^È^YÜ^KM^XÙ[\KMÈXÝ]]HY]Ü]Û\ÜÓ[YOHÜXÙK^KMÚ\ÝÜKX\
-OO\ÝÜQ[HÙ^O^ÙKYH[O^Ù_KÏ_OÙ]BÙ]]Û\ÜÓ[YOHÜ\]Ü\YÜ^KLLMÜYÜYXÛÛËLØ\LÈ^^È^YÜ^KM]Û\ÜÓ[YOHÛ[YY][H^YÜ^KMLXLHÜX]YÜÙ]
-\ÚËÜX]YØ]
-_OÜÙ]]Û\ÜÓ[YOHÛ[YY][H^YÜ^KMLXLH\Ý\]YÜÙ]
-\ÚË\]YØ]
-_OÜÙ]Ù]]Û\ÜÓ[YOHÜ\]Ü\YÜ^KLLM]ÛÛÛXÚÏ^Ú[Q[]U\ÚßH\ØXY^Ù[][ßHÛ\ÜÓ[YOH^^È^\YMÝ\^\YM[Ú][ÛXÛÛÜÈÙ[][ÏÉÑ[][ø )ÎÑ[]H\È\ÚÉßBØ]ÛÙ]Ù]Ù]Ú\Ñ\I]Û\ÜÓ[YOHÜ\]Ü\YÜ^KLLMKMË]Ú]HÚ[ËL^][\ËXÙ[\\ÝYKX]ÙY[Û\ÜÓ[YOH^^È^YÜ^KM[Ø]YÚ[Ù\ÏÜ]Û\ÜÓ[YOH^Ø\L]ÛÛÛXÚÏ^Ê
-OOÜÙ]]J\ÚË]JNÜÙ]Ý]\Ê\ÚËÝ]\ÊNÜÙ]YQ]J\ÚËYWÙ]_	ÉÊNÜÙ]]J\ÚË]_	ÉÊNÜÙ]\ØÜ\[Û\ÚË\ØÜ\[Û	ÉÊ__BÛ\ÜÓ[YOHLÈKLKHÜ\Ü\YÜ^KL^\ÛH^YÜ^KMÌÝ[Y[ÈÝ\ËYÜ^KML\ØØ\Ø]Û]ÛÛÛXÚÏ^Ú[TØ]_H\ØXY^ÜØ][ßHÛ\ÜÓ[YOHLÈKLKHËVÈÌMM
-MÎWH^]Ú]H^\ÛHÛ[YY][HÝ[Y[ÈÝ\ËVÈÌÍMH\ØXYÜXÚ]KMLÜØ][ÏÉÔØ][ø )ÎÔØ]HÚ[Ù\ÉßOØ]ÛÙ]Ù]
-_BÙ]Ï
-BBËÈ8¥ 8¥ Ø[[YÙH8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ [Ý[ÛØ[[YÙJØÛY[YJHÂÛÛÝØÛY[Ù]ÛY[HH\ÙTÝ]J[
-BÛÛÝÝ\ÚÜËÙ]\ÚÜ×HH\ÙTÝ]J×JBÛÛÝÜÙ[XÝY\ÚËÙ]Ù[XÝYHH\ÙTÝ]J[
-BÛÛÝÛØY[ËÙ]ØY[×HH\ÙTÝ]JYJBÛÛÝÜÚÝÐYÙ]ÚÝÐYHH\ÙTÝ]J[ÙJBÛÛÝÛ]Õ]KÙ]]Õ]WHH\ÙTÝ]J	ÉÊBÛÛÝÛ]ÔÝ]\ËÙ]]ÔÝ]\×HH\ÙTÝ]J	Ü]Y]YY	ÊBÛÛÝØYØY[ËÙ]YØY[×HH\ÙTÝ]J[ÙJBÛÛÝÙYÙÚ[ËÙ]YÙÚ[×HH\ÙTÝ]J[
-B\ÙQYXÝ
+            <div>
+              <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">Activity</label>
+              <div className="flex gap-2 mb-4">
+                <input type="text" value={noteText} onChange={e=>setNoteText(e.target.value)}
+                  onKeyDown={e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();handleAddNote()}}}
+                  placeholder="Add a noteâ¦"
+                  className="flex-1 px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#154579]/30 focus:border-[#154579]"/>
+                <button onClick={handleAddNote} disabled={!noteText.trim()} className="px-3 py-2 bg-[#154579] text-white text-sm font-medium rounded-lg hover:bg-[#0f3560] disabled:opacity-40">Add</button>
+              </div>
+              {history.length===0
+                ? <p className="text-xs text-gray-400 text-center py-4">No activity yet</p>
+                : <div className="space-y-4">{history.map(e=><HistoryEntry key={e.id} entry={e}/>)}</div>
+              }
+            </div>
 
+            <div className="border-t border-gray-100 pt-4 grid grid-cols-2 gap-3 text-xs text-gray-400">
+              <div><p className="font-medium text-gray-500 mb-0.5">Created</p><p>{fmt(task.created_at)}</p></div>
+              <div><p className="font-medium text-gray-500 mb-0.5">Last updated</p><p>{fmt(task.updated_at)}</p></div>
+            </div>
 
-OOÂ\Þ[È[Ý[ÛØY
+            <div className="border-t border-gray-100 pt-4">
+              <button onClick={handleDeleteTask} disabled={deleting} className="text-xs text-red-400 hover:text-red-600 transition-colors">
+                {deleting?'Deletingâ¦':'Delete this task'}
+              </button>
+            </div>
+          </div>
+        </div>
 
-HÂÛÛÝÞÙ]NßKÙ]NWHH]ØZ]ÛZ\ÙK[
-ÂÛJ	ØÛY[ÉÊKÙ[XÝ
-	ÊÊK\J	ÚY	ËÛY[Y
-KÚ[ÛJ
-KÛJ	Ý\ÚÜÉÊKÙ[XÝ
-	ÊÊK\J	ØÛY[ÚY	ËÛY[Y
-KÜ\	ÜÜÚ][ÛÊKJBÙ]ÛY[
-ÊNÈÙ]\ÚÜÊ×JNÈÙ]ØY[Ê[ÙJBBØY
+        {isDirty&&(
+          <div className="border-t border-gray-100 px-6 py-4 bg-white shrink-0 flex items-center justify-between">
+            <p className="text-xs text-gray-400">Unsaved changes</p>
+            <div className="flex gap-2">
+              <button onClick={()=>{setTitle(task.title);setStatus(task.status);setDueDate(task.due_date||'');setEta(task.eta||'');setDescription(task.description||'')}}
+                className="px-3 py-1.5 border border-gray-200 text-sm text-gray-700 rounded-lg hover:bg-gray-50">Discard</button>
+              <button onClick={handleSave} disabled={saving} className="px-3 py-1.5 bg-[#154579] text-white text-sm font-medium rounded-lg hover:bg-[#0f3560] disabled:opacity-50">{saving?'Savingâ¦':'Save changes'}</button>
+            </div>
+          </div>
+        )}
+      </div>
+    </>
+  )
+}
 
-BKØÛY[YJB\Þ[È[Ý[ÛY\ÚÊJHÂK][Y][
+// ââ Kanban Page ââââââââââââââââââââââââââââââââââââââââââââââââââ
+function KanbanPage({clientId}) {
+  const [client,setClient]         = useState(null)
+  const [tasks,setTasks]           = useState([])
+  const [selectedTask,setSelected] = useState(null)
+  const [loading,setLoading]       = useState(true)
+  const [showAdd,setShowAdd]       = useState(false)
+  const [newTitle,setNewTitle]     = useState('')
+  const [newStatus,setNewStatus]   = useState('queued')
+  const [addLoading,setAddLoading] = useState(false)
+  const [dragging,setDragging]     = useState(null)
 
-NÈY
-[]Õ]K[J
-JH]\ÈÙ]YØY[ÊYJBÛÛÝX^ÜÏ]\ÚÜË[\OÝ]\ÏOO[]ÔÝ]\ÊKYXÙJ
-K
-OOX]X^
-KÜÚ][ÛKLJBÛÛÝÙ]K\ÜOX]ØZ]ÛJ	Ý\ÚÜÉÊK[Ù\
-ØÛY[ÚYÛY[Y]N]Õ]K[J
-KÝ]\Î]ÔÝ]\ËÜÚ][ÛX^ÜÊÌ_JKÙ[XÝ
+  useEffect(()=>{
+    async function load() {
+      const [{data:c},{data:t}] = await Promise.all([
+        db.from('clients').select('*').eq('id',clientId).single(),
+        db.from('tasks').select('*').eq('client_id',clientId).order('position'),
+      ])
+      setClient(c); setTasks(t||[]); setLoading(false)
+    }
+    load()
+  },[clientId])
 
-KÚ[ÛJ
-BY
-Y\Ü]JHÂÙ]\ÚÜÊOË]WJB]ØZ]ÛJ	Ý\Ú×Ú\ÝÜIÊK[Ù\
-Ý\Ú×ÚY]KYY[ÜÝ]\ÉËÛÝ[YN[]×Ý[YN]ÔÝ]\ËÝNÕ\ÚÈÜX]Y	ßJBBÙ]]Õ]J	ÉÊNÜÙ]YØY[Ê[ÙJNÜÙ]ÚÝÐY
-[ÙJBB\Þ[È[Ý[ÛÚ[ÙTÝ]\Ê\ÚÒY]ÔÝÛÝ
-HÂÙ]\ÚÜÊOX\
-OYOO]\ÚÒYÞËÝ]\Î]ÔÝN
-JBÛÛÝÙ]N_OX]ØZ]ÛJ	Ý\ÚÜÉÊK\]JÜÝ]\Î]ÔÝJK\J	ÚY	Ë\ÚÒY
-KÙ[XÝ
+  async function addTask(e) {
+    e.preventDefault(); if (!newTitle.trim()) return; setAddLoading(true)
+    const maxPos=tasks.filter(t=>t.status===newStatus).reduce((m,t)=>Math.max(m,t.position),-1)
+    const {data,error}=await db.from('tasks').insert({client_id:clientId,title:newTitle.trim(),status:newStatus,position:maxPos+1}).select().single()
+    if (!error&&data) {
+      setTasks(p=>[...p,data])
+      await db.from('task_history').insert({task_id:data.id,field:'status',old_value:null,new_value:newStatus,note:'Task created'})
+    }
+    setNewTitle('');setAddLoading(false);setShowAdd(false)
+  }
 
-KÚ[ÛJ
-BY
-JHÂÙ]\ÚÜÊOX\
-OYOO]\ÚÒYÝN
-JBY
-Ù[XÝY\ÚÏËYOO]\ÚÒY
-HÙ]Ù[XÝY
-JB]ØZ]ÛJ	Ý\Ú×Ú\ÝÜIÊK[Ù\
-Ý\Ú×ÚY\ÚÒYY[ÜÝ]\ÉËÛÝ[YNÛÝ]×Ý[YN]ÔÝJBBBY
-ØY[ÊH]\]Û\ÜÓ[YOH^][\ËXÙ[\\ÝYKXÙ[\NM]Û\ÜÓ[YOHËNNÜ\LÜ\VÈÌMM
-MÎWHÜ\]][Ü\[Ý[YY[[[X]K\Ü[ÏÙ]Y
-XÛY[
-H]\]Û\ÜÓ[YOH^XÙ[\KLÛ\ÜÓ[YOH^YÜ^KMLÛY[ÝÝ[Ü]ÛÛÛXÚÏ^Ê
-OO]YØ]J	ËÉÊ_HÛ\ÜÓ[YOH^VÈÌMM
-MÎWH^\ÛH]LÝ\[\[H¸¡¤XÚÏØ]ÛÙ]ÛÛÝÚ\U\X	ÝÚ[ÝËØØ][ÛÜYÚ[IÝÚ[ÝËØØ][Û][Y_HËÙ\ÚØ\ÉØÛY[Ú\WÝÚÙ[X]\
-]Û\ÜÓ[YOH^^XÛÛVØØ[ÊLMM
-WH]Û\ÜÓ[YOHË]Ú]HÜ\XÜ\YÜ^KLLMÛNMKM^][\ËXÙ[\\ÝYKX]ÙY[Ø\MÚ[ËL]Û\ÜÓ[YOH^][\ËXÙ[\Ø\LÈZ[]ËL]ÛÛÛXÚÏ^Ê
-OO]YØ]J	ËÉÊ_HÛ\ÜÓ[YOH[[KY^][\ËXÙ[\Ø\LKH^\ÛH^YÜ^KMLÝ\^YÜ^KNLÛ[YY][HÚ[ËLÝÈÛ\ÜÓ[YOHËMM[HÛHY]ÐÞHÝÚÙOHÝ\[ÛÛÜÝÚÙUÚY^ÌO]ÝÚÙS[XØ\HÝ[ÝÚÙS[ZÚ[HÝ[HLMHN[MËMÈ
-ËMÈÏÜÝÏÜ[Û\ÜÓ[YOHY[ÛN[[HÛY[ÏÜÜ[Ø]ÛÜ[Û\ÜÓ[YOH^YÜ^KLÌ°­ÏÜÜ[]Û\ÜÓ[YOH^][\ËXÙ[\Ø\LHZ[]ËL]Û\ÜÓ[YOHËNNÝ[Y[È^][\ËXÙ[\\ÝYKXÙ[\^]Ú]H^^ÈÛXÛÚ[ËLÝ[O^ÞØXÚÙÜÝ[ÛÛÜÛY[ÛÛÜ	ÈÌMM
-MÎIß_OØÛY[[YKÛXÙJKÕ\\Ø\ÙJ
-_BÙ]HÛ\ÜÓ[YOHÛ\Ù[ZXÛ^YÜ^KNL[Ø]HØÛY[[Y_OÚOÙ]Ù]]Û\ÜÓ[YOH^][\ËXÙ[\Ø\LÚ[ËL]ÛÛÛXÚÏ^Ê
-OO]YØ]ÜÛ\Ø\Ü]U^
-Ú\U\
-K[
+  async function changeStatus(taskId,newSt,oldSt) {
+    setTasks(p=>p.map(t=>t.id===taskId?{...t,status:newSt}:t))
+    const {data:u}=await db.from('tasks').update({status:newSt}).eq('id',taskId).select().single()
+    if (u) {
+      setTasks(p=>p.map(t=>t.id===taskId?u:t))
+      if (selectedTask?.id===taskId) setSelected(u)
+      await db.from('task_history').insert({task_id:taskId,field:'status',old_value:oldSt,new_value:newSt})
+    }
+  }
 
-OO[\
-	ÐÛY[\ÚØ\[ÈÛÜYYIÊJ_BÛ\ÜÓ[YOHY[ÛN[[KY^][\ËXÙ[\Ø\LKHLÈKLKH^^È^YÜ^KMLÛ[YY][HÝ[Y[ÈÝ\ËYÜ^KLL[Ú][ÛXÛÛÜÈÝÈÛ\ÜÓ[YOHËLËHLËH[HÛHY]ÐÞHÝÚÙOHÝ\[ÛÛÜÝÚÙUÚY^ÌO]ÝÚÙS[XØ\HÝ[ÝÚÙS[ZÚ[HÝ[HNM
-LKLLLLLLLKMLLLNLLLNLLLÏÜÝÏÛÜHÛY[[ÂØ]Û]ÛÛÛXÚÏ^Ê
-OOÙ]ÚÝÐY
-YJ_HÛ\ÜÓ[YOH[[KY^][\ËXÙ[\Ø\LMKLËVÈÌMM
-MÎWH^]Ú]H^\ÛHÛ[YY][HÝ[Y[ÈÝ\ËVÈÌÍMH[Ú][ÛXÛÛÜÈÝÈÛ\ÜÓ[YOHËMM[HÛHY]ÐÞHÝÚÙOHÝ\[ÛÛÜÝÚÙUÚY^Ì_O]ÝÚÙS[XØ\HÝ[ÝÚÙS[ZÚ[HÝ[HLL
-MNN
-ÏÜÝÏY\ÚÂØ]ÛÙ]Ù]ÜÚÝÐY	]Û\ÜÓ[YOHËXYKMLÜ\XÜ\XYKLLMÛNMKLÈÚ[ËLÜHÛÝXZ]^ØY\ÚßHÛ\ÜÓ[YOH^][\ËXÙ[\Ø\LÈX^]ËL[]]]ÑØÝ\È\OH^XÙZÛ\H\ÚÈ]x )[YO^Û]Õ]_HÛÚ[ÙO^ÙOOÙ]]Õ]JK\Ù][YJ_BÛ\ÜÓ[YOH^LHLÈKLÜ\Ü\YÜ^KLÝ[Y[È^\ÛHØÝ\ÎÝ][K[ÛHØÝ\Î[ËLØÝ\Î[ËVÈÌMM
-MÎWKÌÌØÝ\ÎÜ\VÈÌMM
-MÎWHÏÙ[XÝ[YO^Û]ÔÝ]\ßHÛÚ[ÙO^ÙOOÙ]]ÔÝ]\ÊK\Ù][YJ_BÛ\ÜÓ[YOHËMLÈKLÜ\Ü\YÜ^KLÝ[Y[È^\ÛHØÝ\ÎÝ][K[ÛHØÝ\Î[ËLØÝ\Î[ËVÈÌMM
-MÎWKÌÌØÝ\ÎÜ\VÈÌMM
-MÎWHÔÕUTËX\
-ÏOÜ[ÛÙ^O^ÜËÙ^_H[YO^ÜËÙ^_OÜËX[OÛÜ[Û_BÜÙ[XÝ]Û\OHÝXZ]\ØXY^ØYØY[ßHÛ\ÜÓ[YOHMKLËVÈÌMM
-MÎWH^]Ú]H^\ÛHÛ[YY][HÝ[Y[ÈÝ\ËVÈÌÍMH\ØXYÜXÚ]KMLÚ[ËLØYØY[ÏÉÐY[ø )ÎÐY	ßOØ]Û]Û\OH]ÛÛÛXÚÏ^Ê
-OOÙ]ÚÝÐY
-[ÙJ_HÛ\ÜÓ[YOHLÈKL^\ÛH^YÜ^KMLÝ\^YÜ^KNLÚ[ËLØ[Ù[Ø]ÛÙÜOÙ]
-_B]Û\ÜÓ[YOH^LHÝ\ÝË^X]]ÈÝ\ÝË^KZY[]Û\ÜÓ[YOHY[^Ø\MMÛNMKMÝ[O^ÞÛZ[ÚYÙ]XÛÛ[	ß_OÔÕUTËX\
+  if (loading) return <div className="flex items-center justify-center h-96"><div className="w-8 h-8 border-2 border-[#154579] border-t-transparent rounded-full animate-spin"/></div>
+  if (!client)  return <div className="text-center py-24"><p className="text-gray-500">Client not found.</p><button onClick={()=>navigate('/')} className="text-[#154579] text-sm mt-2 hover:underline">â Back</button></div>
 
-ÚÙ^KX[YÙKÝJOOÂÛÛÝÛÛ]\ÚÜË[\OÝ]\ÏOOZÙ^JB]\
-]Ù^O^ÚÙ^_HÛ\ÜÓ[YOH^^XÛÛËMÌÚ[ËLÝ[YL[Ú][ÛXÛÛÜÈÛYÓÝ\^ÙOOÙK][Y][
+  const shareUrl=`${window.location.origin}${window.location.pathname}#/dashboard/${client.share_token}`
 
-NÙKÝ\[\Ù]Û\ÜÓ\ÝY
-	ØÛÛYÜXXÝ]IÊ__BÛYÓX]O^ÙOOÚYYKÝ\[\Ù]ÛÛZ[ÊK[]Y\Ù]
-JYKÝ\[\Ù]Û\ÜÓ\Ý[[ÝJ	ØÛÛYÜXXÝ]IÊ__BÛÜ^ÙOOÂK][Y][
+  return (
+    <div className="flex flex-col h-[calc(100vh-56px)]">
+      <div className="bg-white border-b border-gray-100 px-4 sm:px-6 py-4 flex items-center justify-between gap-4 shrink-0">
+        <div className="flex items-center gap-3 min-w-0">
+          <button onClick={()=>navigate('/')} className="inline-flex items-center gap-1.5 text-sm text-gray-500 hover:text-gray-900 font-medium shrink-0">
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7"/></svg>
+            <span className="hidden sm:inline">Clients</span>
+          </button>
+          <span className="text-gray-300">Â·</span>
+          <div className="flex items-center gap-2.5 min-w-0">
+            <div className="w-8 h-8 rounded-lg flex items-center justify-center text-white text-xs font-bold shrink-0" style={{backgroundColor:client.color||'#154579'}}>
+              {client.name.slice(0,2).toUpperCase()}
+            </div>
+            <h1 className="font-semibold text-gray-900 truncate">{client.name}</h1>
+          </div>
+        </div>
+        <div className="flex items-center gap-2 shrink-0">
+          <button onClick={()=>navigator.clipboard.writeText(shareUrl).then(()=>alert('Client dashboard link copied!'))}
+            className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs text-gray-500 font-medium rounded-lg hover:bg-gray-100 transition-colors">
+            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+            Copy client link
+          </button>
+          <button onClick={()=>setShowAdd(true)} className="inline-flex items-center gap-2 px-4 py-2 bg-[#154579] text-white text-sm font-medium rounded-lg hover:bg-[#0f3560] transition-colors">
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4"/></svg>
+            Add Task
+          </button>
+        </div>
+      </div>
 
-NÙKÝ\[\Ù]Û\ÜÓ\Ý[[ÝJ	ØÛÛYÜXXÝ]IÊBÛÛÝYYK]U[Ù\Ù]]J	Ý\ÚÒY	ÊKÛOYK]U[Ù\Ù]]J	ÙÛTÝ]\ÉÊBY
-Y	ÛHOOZÙ^JHÚ[ÙTÝ]\ÊYÙ^KÛJBÙ]YÙÚ[Ê[
-B_O]Û\ÜÓ[YO^Ø^][\ËXÙ[\Ø\LLÈKLÝ[Y^XLÈ	ØYÙ_XOÜ[Û\ÜÓ[YO^ØËLLÝ[YY[	ÙÝXKÏÜ[Û\ÜÓ[YOHÛ\Ù[ZXÛ^\ÛHÛX[OÜÜ[Ü[Û\ÜÓ[YOH[X]]È^^ÈÛXÛÜXÚ]KMØÛÛ[ÝOÜÜ[Ù]]Û\ÜÓ[YOH^^XÛÛØ\L^LHÝ\ÝË^KX]]ÈZ[ZLMØÛÛX\
-\ÚÏO]Ù^O^Ý\ÚËYHÛ\ÜÓ[YO^ÙYÙÚ[ÏOO]\ÚËYÉØØ\YYÙÚ[ÉÎÉßO\ÚÐØ\\ÚÏ^Ý\ÚßHÛÛXÚÏ^Ê
-OOÙ]Ù[XÝY
-\ÚÊ_BÛYÔÝ\^Ê
-OOÙ]YÙÚ[Ê\ÚËY
-_HÛYÑ[^Ê
-OOÙ]YÙÚ[Ê[
-_KÏÙ]
-J_BØÛÛ[ÝOOL	]Û\ÜÓ[YOH^LHÜ\LÜ\Y\ÚYÜ\YÜ^KLÝ[Y^^][\ËXÙ[\\ÝYKXÙ[\Z[ZLÛ\ÜÓ[YOH^^È^YÜ^KMÜ\ÚÜÈ\OÜÙ]
-_BÙ]Ù]
-BJ_BÙ]Ù]ÜÙ[XÝY\ÚÉ\ÚÓ[Ù[\ÚÏ^ÜÙ[XÝY\ÚßHÛÛÜÙO^Ê
-OOÙ]Ù[XÝY
-[
-_BÛ\]O^ÝOOÜÙ]\ÚÜÊOX\
-OYOO]KYÝN
-JNÚYÙ[XÝY\ÚÏËYOO]KY
-\Ù]Ù[XÝY
-J__BÛ[]O^ÚYOÜÙ]\ÚÜÊO[\OYOOZY
-JNÜÙ]Ù[XÝY
-[
-__KÏ
-_BÙ]
-BBËÈ8¥ 8¥ ÛY[\ÚØ\
-XXÊH8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ [Ý[ÛÛY[\ÚØ\
-ÜÚ\UÚÙ[JHÂÛÛÝØÛY[Ù]ÛY[HH\ÙTÝ]J[
-BÛÛÝÝ\ÚÜËÙ]\ÚÜ×HH\ÙTÝ]J×JBÛÛÝÛØY[ËÙ]ØY[×HH\ÙTÝ]JYJBÛÛÝÛÝÝ[Ù]ÝÝ[HH\ÙTÝ]J[ÙJB\ÙQYXÝ
+      {showAdd&&(
+        <div className="bg-blue-50 border-b border-blue-100 px-4 sm:px-6 py-3 shrink-0">
+          <form onSubmit={addTask} className="flex items-center gap-3 max-w-2xl">
+            <input autoFocus type="text" placeholder="Task titleâ¦" value={newTitle} onChange={e=>setNewTitle(e.target.value)}
+              className="flex-1 px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#154579]/30 focus:border-[#154579]"/>
+            <select value={newStatus} onChange={e=>setNewStatus(e.target.value)}
+              className="w-40 px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#154579]/30 focus:border-[#154579]">
+              {STATUS.map(s=><option key={s.key} value={s.key}>{s.label}</option>)}
+            </select>
+            <button type="submit" disabled={addLoading} className="px-4 py-2 bg-[#154579] text-white text-sm font-medium rounded-lg hover:bg-[#0f3560] disabled:opacity-50 shrink-0">{addLoading?'Addingâ¦':'Add'}</button>
+            <button type="button" onClick={()=>setShowAdd(false)} className="px-3 py-2 text-sm text-gray-500 hover:text-gray-900 shrink-0">Cancel</button>
+          </form>
+        </div>
+      )}
 
+      <div className="flex-1 overflow-x-auto overflow-y-hidden">
+        <div className="h-full flex gap-4 px-4 sm:px-6 py-4" style={{minWidth:'fit-content'}}>
+          {STATUS.map(({key,label,badge,dot})=>{
+            const col=tasks.filter(t=>t.status===key)
+            return (
+              <div key={key} className="flex flex-col w-72 shrink-0 rounded-2xl transition-colors"
+                onDragOver={e=>{e.preventDefault();e.currentTarget.classList.add('col-drop-active')}}
+                onDragLeave={e=>{if(!e.currentTarget.contains(e.relatedTarget))e.currentTarget.classList.remove('col-drop-active')}}
+                onDrop={e=>{
+                  e.preventDefault();e.currentTarget.classList.remove('col-drop-active')
+                  const id=e.dataTransfer.getData('taskId'),from=e.dataTransfer.getData('fromStatus')
+                  if (id&&from!==key) changeStatus(id,key,from)
+                  setDragging(null)
+                }}>
+                <div className={`flex items-center gap-2 px-3 py-2 rounded-xl mb-3 ${badge}`}>
+                  <span className={`w-2 h-2 rounded-full ${dot}`}/><span className="font-semibold text-sm">{label}</span>
+                  <span className="ml-auto text-xs font-bold opacity-60">{col.length}</span>
+                </div>
+                <div className="flex flex-col gap-2 flex-1 overflow-y-auto min-h-24 pb-4">
+                  {col.map(task=>(
+                    <div key={task.id} className={dragging===task.id?'card-dragging':''}>
+                      <TaskCard task={task} onClick={()=>setSelected(task)}
+                        onDragStart={()=>setDragging(task.id)} onDragEnd={()=>setDragging(null)}/>
+                    </div>
+                  ))}
+                  {col.length===0&&(
+                    <div className="flex-1 border-2 border-dashed border-gray-200 rounded-xl flex items-center justify-center min-h-20">
+                      <p className="text-xs text-gray-400">Drop tasks here</p>
+                    </div>
+                  )}
+                </div>
+              </div>
+            )
+          })}
+        </div>
+      </div>
 
-OOÂ\Þ[È[Ý[ÛØY
+      {selectedTask&&(
+        <TaskModal task={selectedTask} onClose={()=>setSelected(null)}
+          onUpdate={u=>{setTasks(p=>p.map(t=>t.id===u.id?u:t));if(selectedTask?.id===u.id)setSelected(u)}}
+          onDelete={id=>{setTasks(p=>p.filter(t=>t.id!==id));setSelected(null)}}/>
+      )}
+    </div>
+  )
+}
 
-HÂÛÛÝÙ]NË\ÜOX]ØZ]ÛJ	ØÛY[ÉÊKÙ[XÝ
-	ÊÊK\J	ÜÚ\WÝÚÙ[ËÚ\UÚÙ[KÚ[ÛJ
-BY
-\ÜXÊ^ÜÙ]ÝÝ[
-YJNÜÙ]ØY[Ê[ÙJNÜ]\BÙ]ÛY[
-ÊBÛÛÝÙ]NOX]ØZ]ÛJ	Ý\ÚÜÉÊKÙ[XÝ
-	ÊÊK\J	ØÛY[ÚY	ËËY
-K\J	ÜÝ]\ÉË	ÙÛIÊKÜ\	ÙYWÙ]IËØ\ØÙ[[ÎYK[Ñ\Ý[Ù_JBÙ]\ÚÜÊ×JNÈÙ]ØY[Ê[ÙJBBØY
+// ââ Client Dashboard (public) ââââââââââââââââââââââââââââââââââââ
+function ClientDashboard({shareToken}) {
+  const [client,setClient]   = useState(null)
+  const [tasks,setTasks]     = useState([])
+  const [loading,setLoading] = useState(true)
+  const [notFound,setNotFound] = useState(false)
 
-BKÜÚ\UÚÙ[JBY
-ØY[ÊH]\]Û\ÜÓ[YOHZ[Z\ØÜY[Ë]Ú]H^][\ËXÙ[\\ÝYKXÙ[\]Û\ÜÓ[YOHËNNÜ\LÜ\YÜ^KLÌÜ\]YÜ^KMÝ[YY[[[X]K\Ü[ÏÙ]Y
-ÝÝ[
-H]\]Û\ÜÓ[YOHZ[Z\ØÜY[Ë]Ú]H^^XÛÛ][\ËXÙ[\\ÝYKXÙ[\^XÙ[\MHÛ\ÜÓ[YOH^LÛXÛXLÝÝ[ÚOÛ\ÜÓ[YOH^YÜ^KML\È\ÚØ\[ÈÙ\ÛÝ^\ÝÜX^H]H^\YÜÙ]ÛÛÝ[XÛY[ÛÛÜ	ÈÌMM
-MÎIÂÛÛÝÜÝ\YTÕUTËYXÙJ
-XØËÊOOØÛÛÝ][\Ï]\ÚÜË[\OÝ]\ÏOO\ËÙ^JNÚY][\Ë[Ý
-XXØÖÜËÙ^WOZ][\ÎÜ]\XØßKßJB]\
-]Û\ÜÓ[YOHZ[Z\ØÜY[ËYÜ^KML]Ý[O^ÞØXÚÙÜÝ[ÛÛÜ[_HÛ\ÜÓ[YOH^]Ú]H]Û\ÜÓ[YOHX^]ËLÞ^X]]ÈMÛNMKN]Û\ÜÓ[YOH^][\ËXÙ[\Ø\M]Û\ÜÓ[YOHËLMLMË]Ú]KÌÝ[YL^][\ËXÙ[\\ÝYKXÙ[\^]Ú]H^[ÈÛXÛÚ[ËLØÛY[[YKÛXÙJKÕ\\Ø\ÙJ
-_BÙ]]Û\ÜÓ[YOH^]Ú]KÍÌ^\ÛHÛ[YY][H\\Ø\ÙHXÚÚ[Ë]ÚYHÚXÝ\]OÜHÛ\ÜÓ[YOH^LÛXÛ]LHØÛY[[Y_OÚOÙ]Ù]]Û\ÜÓ[YOH^^]Ü\Ø\LÈ]M]Û\ÜÓ[YOHË]Ú]KÌLÝ[Y^MKLÛ\ÜÓ[YOH^]Ú]KÍÌ^^ÈÛ[YY][HXÝ]H\ÚÜÏÜÛ\ÜÓ[YOH^]Ú]H^^ÛXÛÝ\ÚÜË[ÝOÜÙ]ÔÕUTË[\ÏOËÙ^HOOIÙÛIÊKX\
-ÏOØÛÛÝ]\ÚÜË[\OÝ]\ÏOO\ËÙ^JK[ÝÜ]\Ï]Ù^O^ÜËÙ^_HÛ\ÜÓ[YOHË]Ú]KÌLÝ[Y^MKLÛ\ÜÓ[YOH^]Ú]KÍÌ^^ÈÛ[YY][HÜËX[OÜÛ\ÜÓ[YOH^]Ú]H^^ÛXÛÛOÜÙ][J_BÙ]Ù]Ù]]Û\ÜÓ[YOHX^]ËLÞ^X]]ÈMÛNMKNÓØXÝÙ^\ÊÜÝ\Y
-K[ÝOOLÊ]Û\ÜÓ[YOH^XÙ[\KLMË]Ú]HÝ[YLÜ\Ü\YÜ^KLL]Û\ÜÓ[YOHËLLLLËYÜY[MLÝ[YY[^][\ËXÙ[\\ÝYKXÙ[\^X]]ÈXLÈÝÈÛ\ÜÓ[YOHËMM^YÜY[ML[HÛHY]ÐÞHÝÚÙOHÝ\[ÛÛÜÝÚÙUÚY^ÌO]ÝÚÙS[XØ\HÝ[ÝÚÙS[ZÚ[HÝ[HMHLÛ
-
-NH
-ÈÏÜÝÏÙ]Û\ÜÓ[YOHÛ\Ù[ZXÛ^YÜ^KNL[Ø]YÚ\OÜÛ\ÜÓ[YOH^\ÛH^YÜ^KML]LHÈXÝ]H\ÚÜÈYÚÝËÜÙ]
-N]Û\ÜÓ[YOHÜXÙK^KNÔÕUTË[\ÏOÜÝ\YÜËÙ^WJKX\
-ÏO]Ù^O^ÜËÙ^_O]Û\ÜÓ[YOH^][\ËXÙ[\Ø\LXLÈÜ[Û\ÜÓ[YO^ØËLLÝ[YY[	ÜËÝXKÏÛ\ÜÓ[YOHÛ\Ù[ZXÛ^YÜ^KNL^\ÛH\\Ø\ÙHXÚÚ[Ë]ÚYHÜËX[OÚÜ[Û\ÜÓ[YOH^YÜ^KM^\ÛHÙÜÝ\YÜËÙ^WK[ÝJOÜÜ[Ù]]Û\ÜÓ[YOHÜXÙK^KLÙÜÝ\YÜËÙ^WKX\
-\ÚÏO]Ù^O^Ý\ÚËYHÛ\ÜÓ[YOHË]Ú]HÜ\Ü\YÜ^KLLÝ[Y^MHKM^][\Ë\Ý\\ÝYKX]ÙY[Ø\MÚYÝË\ÛH]Û\ÜÓ[YOHZ[]ËLÛ\ÜÓ[YOHÛ[YY][H^YÜ^KNLXY[Ë\ÛYÈÝ\ÚË]_OÜÝ\ÚË\ØÜ\[ÛÛ\ÜÓ[YOH^\ÛH^YÜ^KML]LH[KXÛ[\LÝ\ÚË\ØÜ\[ÛOÜBÝ\ÚË]IÛ\ÜÓ[YOH^^È^YÜ^KM]LHUNÝ\ÚË]_OÜBÙ]Ý\ÚËYWÙ]I]Û\ÜÓ[YO^ØÚ[ËL^\YÚ	Ú\ÓÝ\YJ\ÚËYWÙ]JOÉÝ^\YM	ÎÝ^YÜ^KML	ßXOÛ\ÜÓ[YOH^^ÈÛ[YY][H\\Ø\ÙHXÚÚ[Ë]ÚYHÚ\ÓÝ\YJ\ÚËYWÙ]JOÉÓÝ\YIÎÑYIßOÜÛ\ÜÓ[YOH^\ÛHÛ\Ù[ZXÛ]LHÙ]]J\ÚËYWÙ]J_OÜÙ]
-_BÙ]
-J_BÙ]Ù]
-J_BÙ]
-_B]Û\ÜÓ[YOH]LL^XÙ[\^^È^YÜ^KMÝÙ\YH]Ù[Ú\ÛHÜÝ\È0­ÈXY[ÛHY]ÏÙ]Ù]Ù]
-BBËÈ8¥ 8¥ \^[Ý]
-]H8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ [Ý[Û\^[Ý]
-ØÚ[[JHÂÛÛÝÜÙ\ÜÚ[ÛO]\ÙP]]
+  useEffect(()=>{
+    async function load() {
+      const {data:c,error}=await db.from('clients').select('*').eq('share_token',shareToken).single()
+      if (error||!c){setNotFound(true);setLoading(false);return}
+      setClient(c)
+      const {data:t}=await db.from('tasks').select('*').eq('client_id',c.id).neq('status','done').order('due_date',{ascending:true,nullsFirst:false})
+      setTasks(t||[]); setLoading(false)
+    }
+    load()
+  },[shareToken])
 
-B]\
-]Û\ÜÓ[YOHZ[Z\ØÜY[ËYÜ^KML^^XÛÛXY\Û\ÜÓ[YOHËVÈÌMM
-MÎWH^]Ú]HÝXÚÞHÜLLÌ]Û\ÜÓ[YOHX^]ËMÞ^X]]ÈMÛNMLM^][\ËXÙ[\\ÝYKX]ÙY[]ÛÛÛXÚÏ^Ê
-OO]YØ]J	ËÉÊ_HÛ\ÜÓ[YOH^][\ËXÙ[\Ø\LHÝ\ÜXÚ]KN[Ú][Û[ÜXÚ]H]Û\ÜÓ[YOHËMÈMÈË]Ú]KÌÝ[Y[È^][\ËXÙ[\\ÝYKXÙ[\ÝÈÛ\ÜÓ[YOHËMM^]Ú]H[HÛHY]ÐÞHÝÚÙOHÝ\[ÛÛÜÝÚÙUÚY^Ì_O]ÝÚÙS[XØ\HÝ[ÝÚÙS[ZÚ[HÝ[HNH
-R
-ØLLLLLLLØLLLLNH
-XLLLNH
-XLLLLLÏÜÝÏÙ]Ü[Û\ÜÓ[YOHÛ\Ù[ZXÛ^\ÛHXÚÚ[Ë]ÚYH]Ù[Ú\ÛHOÜÜ[Ø]Û]Û\ÜÓ[YOH^][\ËXÙ[\Ø\LÈÜ[Û\ÜÓ[YOH^^È^]Ú]KÍY[ÛNØÚÈÜÙ\ÜÚ[ÛË\Ù\Ë[XZ[OÜÜ[]ÛÛÛXÚÏ^Ê
-OO]]ÚYÛÝ]
+  if (loading)  return <div className="min-h-screen bg-white flex items-center justify-center"><div className="w-8 h-8 border-2 border-gray-300 border-t-gray-600 rounded-full animate-spin"/></div>
+  if (notFound) return <div className="min-h-screen bg-white flex flex-col items-center justify-center text-center px-4"><h1 className="text-2xl font-bold mb-2">Not found</h1><p className="text-gray-500">This dashboard link doesn't exist or may have expired.</p></div>
 
-K[
+  const brand=client.color||'#154579'
+  const grouped=STATUS.reduce((acc,s)=>{const items=tasks.filter(t=>t.status===s.key);if(items.length)acc[s.key]=items;return acc},{})
 
-OO]YØ]J	ËÛÙÚ[ÊJ_BÛ\ÜÓ[YOH^^È^]Ú]KÍÌÝ\^]Ú]HÜ\Ü\]Ú]KÌÝ\Ü\]Ú]KÍÝ[Y[ÈLÈKLKH[Ú][ÛXÛÛÜÈÚYÛÝ]Ø]ÛÙ]Ù]ÚXY\XZ[Û\ÜÓ[YOH^LHØÚ[[OÛXZ[Ù]
-BBËÈ8¥ 8¥ ]]Ø]H8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ [Ý[Û]]Ø]JÜÝ]_JHÂÛÛÝÜÙ\ÜÚ[ÛØY[ßO]\ÙP]]
+  return (
+    <div className="min-h-screen bg-gray-50">
+      <div style={{backgroundColor:brand}} className="text-white">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8">
+          <div className="flex items-center gap-4">
+            <div className="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center text-white text-lg font-bold shrink-0">
+              {client.name.slice(0,2).toUpperCase()}
+            </div>
+            <div>
+              <p className="text-white/70 text-sm font-medium uppercase tracking-wide">Project Update</p>
+              <h1 className="text-2xl font-bold mt-0.5">{client.name}</h1>
+            </div>
+          </div>
+          <div className="flex flex-wrap gap-3 mt-6">
+            <div className="bg-white/10 rounded-xl px-4 py-2"><p className="text-white/70 text-xs font-medium">Active Tasks</p><p className="text-white text-xl font-bold">{tasks.length}</p></div>
+            {STATUS.filter(s=>s.key!=='done').map(s=>{const n=tasks.filter(t=>t.status===s.key).length;return n?<div key={s.key} className="bg-white/10 rounded-xl px-4 py-2"><p className="text-white/70 text-xs font-medium">{s.label}</p><p className="text-white text-xl font-bold">{n}</p></div>:null})}
+          </div>
+        </div>
+      </div>
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8">
+        {Object.keys(grouped).length===0?(
+          <div className="text-center py-16 bg-white rounded-2xl border border-gray-100">
+            <div className="w-12 h-12 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-3">
+              <svg className="w-6 h-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"/></svg>
+            </div>
+            <p className="font-semibold text-gray-900">All caught up!</p>
+            <p className="text-sm text-gray-500 mt-1">No active tasks right now.</p>
+          </div>
+        ):(
+          <div className="space-y-8">
+            {STATUS.filter(s=>grouped[s.key]).map(s=>(
+              <div key={s.key}>
+                <div className="flex items-center gap-2 mb-3">
+                  <span className={`w-2 h-2 rounded-full ${s.dot}`}/><h2 className="font-semibold text-gray-900 text-sm uppercase tracking-wide">{s.label}</h2><span className="text-gray-400 text-sm">({grouped[s.key].length})</span>
+                </div>
+                <div className="space-y-2">
+                  {grouped[s.key].map(task=>(
+                    <div key={task.id} className="bg-white border border-gray-100 rounded-xl px-5 py-4 flex items-start justify-between gap-4 shadow-sm">
+                      <div className="min-w-0">
+                        <p className="font-medium text-gray-900 leading-snug">{task.title}</p>
+                        {task.description&&<p className="text-sm text-gray-500 mt-1 line-clamp-2">{task.description}</p>}
+                        {task.eta&&<p className="text-xs text-gray-400 mt-1">ETA: {task.eta}</p>}
+                      </div>
+                      {task.due_date&&(
+                        <div className={`shrink-0 text-right ${isOverdue(task.due_date)?'text-red-600':'text-gray-500'}`}>
+                          <p className="text-xs font-medium uppercase tracking-wide">{isOverdue(task.due_date)?'Overdue':'Due'}</p>
+                          <p className="text-sm font-semibold mt-0.5">{fmtDate(task.due_date)}</p>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+        <div className="mt-12 text-center text-xs text-gray-400">Powered by Newell Circle Group LLC Â· Read-only view</div>
+      </div>
+    </div>
+  )
+}
 
-BY
-ØY[ÊH]\
-]Û\ÜÓ[YOHZ[Z\ØÜY[^][\ËXÙ[\\ÝYKXÙ[\ËYÜ^KML]Û\ÜÓ[YOH^^XÛÛ][\ËXÙ[\Ø\LÈ]Û\ÜÓ[YOHËNNÜ\LÜ\VÈÌMM
-MÎWHÜ\]][Ü\[Ý[YY[[[X]K\Ü[ÏÛ\ÜÓ[YOH^\ÛH^YÜ^KMLØY[ø )ÜÙ]Ù]
-BY
-\Ù\ÜÚ[ÛH]\ÙÚ[YÙKÏ]\
-\^[Ý]ÜÝ]KY]ÏOOIÚØ[[ÏÏØ[[YÙHÛY[Y^ÜÝ]KÛY[YKÏÝ\Y]ÔYÙKÏBÐ\^[Ý]
-BBËÈ8¥ 8¥ ÛÝ8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ [Ý[Û\
+// ââ App Layout (nav) âââââââââââââââââââââââââââââââââââââââââââââ
+function AppLayout({children}) {
+  const {session}=useAuth()
+  return (
+    <div className="min-h-screen bg-gray-50 flex flex-col">
+      <header className="bg-[#154579] text-white sticky top-0 z-30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
+          <button onClick={()=>navigate('/')} className="flex items-center gap-2.5 hover:opacity-80 transition-opacity">
+            <div className="w-7 h-7 bg-white/20 rounded-lg flex items-center justify-center">
+              <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+            </div>
+            <span className="font-semibold text-sm tracking-wide">Newell Circle PM</span>
+          </button>
+          <div className="flex items-center gap-3">
+            <span className="text-xs text-white/60 hidden sm:block">{session?.user?.email}</span>
+            <button onClick={()=>db.auth.signOut().then(()=>navigate('/login'))}
+              className="text-xs text-white/70 hover:text-white border border-white/20 hover:border-white/40 rounded-lg px-3 py-1.5 transition-colors">Sign out</button>
+          </div>
+        </div>
+      </header>
+      <main className="flex-1">{children}</main>
+    </div>
+  )
+}
 
-HÂÛÛÝÜÝ]KÙ]Ý]WO]\ÙTÝ]J\ÙTÝ]J
-JB\ÙQYXÝ
+// ââ Auth Gate ââââââââââââââââââââââââââââââââââââââââââââââââââââ
+function AuthGate({route}) {
+  const {session,loading}=useAuth()
+  if (loading) return (
+    <div className="min-h-screen flex items-center justify-center bg-gray-50">
+      <div className="flex flex-col items-center gap-3">
+        <div className="w-8 h-8 border-2 border-[#154579] border-t-transparent rounded-full animate-spin"/>
+        <p className="text-sm text-gray-500">Loadingâ¦</p>
+      </div>
+    </div>
+  )
+  if (!session) return <LoginPage/>
+  return (
+    <AppLayout>
+      {route.view==='kanban'?<KanbanPage clientId={route.clientId}/>:<OverviewPage/>}
+    </AppLayout>
+  )
+}
 
+// ââ Root âââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+function App() {
+  const [route,setRoute]=useState(parseRoute())
+  useEffect(()=>{
+    const h=()=>setRoute(parseRoute())
+    window.addEventListener('hashchange',h)
+    return ()=>window.removeEventListener('hashchange',h)
+  },[])
+  if (route.view==='dashboard') return <ClientDashboard shareToken={route.shareToken}/>
+  return <AuthProvider><AuthGate route={route}/></AuthProvider>
+}
 
-OOÂÛÛÝJ
-OOÙ]Ý]J\ÙTÝ]J
-JBÚ[ÝËY][\Ý[\	Ú\ÚÚ[ÙIË
-B]\
-
-OOÚ[ÝË[[ÝQ][\Ý[\	Ú\ÚÚ[ÙIË
-BK×JBY
-Ý]KY]ÏOOIÙ\ÚØ\	ÊH]\ÛY[\ÚØ\Ú\UÚÙ[^ÜÝ]KÚ\UÚÙ[KÏ]\]]ÝY\]]Ø]HÝ]O^ÜÝ]_KÏÐ]]ÝY\BXXÝÓKÜX]TÛÝ
-ØÝ[Y[Ù][[Y[RY
-	ÜÛÝ	ÊJK[\\ÏBÜØÜ\ØÙOÚ[
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>)
+</script>
+</body>
+</html>
