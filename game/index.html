@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Box Horde: The Attic</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1008; overflow: hidden; font-family: 'Georgia', serif; user-select: none; }
+  #gameCanvas { display: block; cursor: default; }
+
+  /* Dialog bubble */
+  #dialog-bubble {
+    display: none;
+    position: fixed;
+    background: #fffef0;
+    border: 2px solid #8B6914;
+    border-radius: 12px;
+    padding: 8px 12px;
+    max-width: 220px;
+    font-size: 13px;
+    color: #2a1a00;
+    line-height: 1.4;
+    z-index: 100;
+    pointer-events: none;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.4);
+  }
+  #dialog-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: #8B6914;
+  }
+  #dialog-bubble::before {
+    content: '';
+    position: absolute;
+    bottom: -7px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: #fffef0;
+    z-index: 1;
+  }
+
+  /* Inventory bar */
+  #inventory-bar {
+    display: none;
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    height: 80px;
+    background: linear-gradient(to bottom, #3a2510, #1e1208);
+    border-top: 2px solid #8B6914;
+    z-index: 90;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    gap: 8px;
+  }
+  #inventory-label {
+    color: #8B6914;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    flex-shrink: 0;
+  }
+  #inventory-items {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+  .inv-item {
+    width: 60px; height: 60px;
+    background: #2a1a08;
+    border: 2px solid #5a3a18;
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .inv-item:hover { border-color: #c89030; }
+  .inv-item.selected { border-color: #FFD700; box-shadow: 0 0 8px rgba(255,215,0,0.5); }
+  .inv-item canvas { display: block; }
+  .inv-item .inv-tooltip {
+    display: none;
+    position: absolute;
+    bottom: 68px; left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.85);
+    color: #fffef0;
+    font-size: 11px;
+    padding: 3px 7px;
+    border-radius: 4px;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+  .inv-item:hover .inv-tooltip { display: block; }
+
+  /* Use-with hint */
+  #use-with-hint {
+    display: none;
+    position: fixed;
+    top: 12px; left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.75);
+    color: #FFD700;
+    font-size: 13px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    z-index: 110;
+    pointer-events: none;
+    border: 1px solid #8B6914;
+  }
+
+  /* Verb coin */
+  #verb-coin {
+    display: none;
+    position: fixed;
+    width: 160px; height: 160px;
+    z-index: 95;
+    pointer-events: none;
+  }
+  .verb-btn {
+    position: absolute;
+    width: 70px; height: 30px;
+    background: rgba(30,15,5,0.9);
+    border: 1px solid #8B6914;
+    border-radius: 15px;
+    color: #e8d8a0;
+    font-size: 12px;
+    cursor: pointer;
+    pointer-events: all;
+    display: flex; align-items: center; justify-content: center;
+    gap: 4px;
+    transition: background 0.1s;
+  }
+  .verb-btn:hover { background: rgba(139,105,20,0.8); color: #fff; }
+  .verb-btn.disabled { opacity: 0.35; pointer-events: none; }
+  #vb-look  { top: 0;    left: 45px; }
+  #vb-pick  { top: 65px; left: 5px;  }
+  #vb-use   { top: 65px; right: 5px; }
+  #vb-talk  { bottom: 0; left: 45px; }
+
+  /* Scene transition overlay */
+  #fade-overlay {
+    position: fixed; inset: 0;
+    background: black;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 200;
+    transition: opacity 0.3s;
+  }
+</style>
+</head>
+<body>
+<canvas id="gameCanvas"></canvas>
+
+<div id="dialog-bubble"></div>
+
+<div id="inventory-bar">
+  <div id="inventory-label">Inventory</div>
+  <div id="inventory-items"></div>
+</div>
+
+<div id="use-with-hint">Select an item to use it with...</div>
+
+<div id="verb-coin">
+  <button class="verb-btn" id="vb-look">👁 Look</button>
+  <button class="verb-btn" id="vb-pick">✋ Pick Up</button>
+  <button class="verb-btn" id="vb-use">⚙ Use</button>
+  <button class="verb-btn" id="vb-talk">💬 Talk</button>
+</div>
+
+<div id="fade-overlay"></div>
+
+<script type="module" src="game.js"></script>
+</body>
+</html>
