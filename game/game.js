@@ -486,13 +486,13 @@ class InventorySystem {
     this.bar.style.display = 'flex';
   }
 
-  addItem(id) {
+  addItem(id, silent = false) {
     if (this.items.find(i => i.id === id)) return;
     const def = ITEM_DEFS[id];
     if (!def) return;
     this.items.push(def);
     this.renderBar();
-    this.engine.dialog.say(`Got ${def.label}!`);
+    if (!silent) this.engine.dialog.say(`Got ${def.label}!`);
   }
 
   removeItem(id) {
@@ -667,9 +667,9 @@ class PuzzleState {
     if (pair === 'box_label+candle') {
       inv.removeItem('candle');
       inv.removeItem('box_label');
-      inv.addItem('attic_map');
-      this.set('has_attic_map');
       this.engine.dialog.say("I hold the candle under the label — invisible ink appears! It's a map! Box #23 is buried behind the east stack!");
+      inv.addItem('attic_map', true); // silent — explanation already queued above
+      this.set('has_attic_map');
     } else {
       this.engine.dialog.say("Those two don't seem to go together.");
     }
@@ -813,8 +813,8 @@ function drawAtticBg(ctx, w, h, flags) {
     BoxRenderer.drawBox(ctx, w*0.37, h*0.60, 78, 40, {color:boxColor(88),label:'88',worn:0.3});
   }
 
-  // Candle on a small box
-  ITEM_DEFS.candle.draw(ctx, w*0.62, h*0.60, 36);
+  // Candle on a small box — drawn larger and lower so it's visible and clickable
+  ITEM_DEFS.candle.draw(ctx, w*0.625, h*0.625, 80);
 }
 
 function drawPadlock(ctx, cx, cy, size, open) {
@@ -1052,8 +1052,9 @@ class SceneManager {
             pickUp(e){
               if(e.inventory.hasItem('box_label')){ e.dialog.say("I already took the label."); return; }
               e.puzzle.set('has_box_label');
-              e.inventory.addItem('box_label');
               e.puzzle.set('clue_box_41_seen');
+              e.dialog.say("I peel off the waxy shipping label. It's almost translucent. The number '4' is visible on it.");
+              e.inventory.addItem('box_label', true);
             }
           }
         },
@@ -1067,19 +1068,20 @@ class SceneManager {
         },
         {
           id:'candle', label:'Old Candle', cursor:'pointer',
-          region:{x:w*0.60, y:h*0.56, w:28, h:42},
+          region:{x:w*0.585, y:h*0.565, w:80, h:95},
           actions:{
             lookAt(e){ e.dialog.say("A taper candle. Smells faintly of vanilla and regret."); },
             pickUp(e){
               if(e.inventory.hasItem('candle')){ e.dialog.say("I've already got the candle."); return; }
               e.puzzle.set('has_candle');
-              e.inventory.addItem('candle');
+              e.dialog.say("I grab the candle. Still has some wick left. Useful.");
+              e.inventory.addItem('candle', true);
             }
           }
         },
         {
           id:'padlock', label:'Cabinet Padlock', cursor:'pointer',
-          region:{x:w*0.80, y:h*0.59, w:50, h:50},
+          region:{x:w*0.79, y:h*0.60, w:w*0.08, h:h*0.09},
           condition:(fl) => !fl.combo_lock_open,
           actions:{
             lookAt(e){ e.dialog.say("A three-dial combination padlock. Who puts a padlock on a cabinet in their own attic?"); },
